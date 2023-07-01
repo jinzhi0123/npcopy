@@ -11,12 +11,12 @@ export async function copy(source: string, output: string, ignores: string[]) {
   console.time('finish in')
   source = path.resolve(source)
   output = path.resolve(output)
-  await handleCopy(source, output, ignores, record)
+  handleCopy(source, output, ignores, record)
   console.timeEnd('finish in')
   console.log(`${record.count} files in total`)
 }
 
-async function handleCopy(
+function handleCopy(
   sourceDir: string,
   outputDir: string,
   ignores: string[],
@@ -32,7 +32,7 @@ async function handleCopy(
       continue
     const sourceFile = path.join(sourceDir, file)
     const outputFile = path.join(outputDir, file)
-    const stat = await fs.stat(sourceFile)
+    const stat = fs.statSync(sourceFile)
     if (stat.isDirectory()) {
       if (ignores.includes(file))
         continue
@@ -41,11 +41,11 @@ async function handleCopy(
       console.log(sourceFile)
       fs.ensureDirSync(outputFile)
       record.count++
-      await handleCopy(sourceFile, outputFile, ignores, record)
+      handleCopy(sourceFile, outputFile, ignores, record)
     }
     else {
       console.log(sourceFile)
-      await fs.copy(sourceFile, outputFile)
+      fs.copy(sourceFile, outputFile)
       record.count++
       console.log(sourceFile)
     }

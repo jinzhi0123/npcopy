@@ -10,12 +10,12 @@ export async function list(source: string, ignores: string[]) {
   }
   console.time('finish in')
   source = path.resolve(source)
-  await handleList(source, ignores, record)
+  handleList(source, ignores, record)
   console.timeEnd('finish in')
   console.log(`${record.count} files in total`)
 }
 
-async function handleList(
+function handleList(
   sourceDir: string,
   ignores: string[],
   record: NPRecord,
@@ -29,7 +29,7 @@ async function handleList(
     if (!filter(sourceDir, file, ignores))
       continue
     const sourceFile = path.join(sourceDir, file)
-    const stat = await fs.stat(sourceFile)
+    const stat = fs.statSync(sourceFile)
     if (stat.isDirectory()) {
       if (ignores.includes(file))
         continue
@@ -37,7 +37,7 @@ async function handleList(
       // 如果是目录，递归
       console.log(sourceFile)
       record.count++
-      await handleList(sourceFile, ignores, record)
+      handleList(sourceFile, ignores, record)
     }
     else {
       console.log(sourceFile)
