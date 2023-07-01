@@ -54,13 +54,13 @@ program
   .version('1.0.0')
   .addHelpText('after', `
 Examples:
-  $ npcopy
+  $ npcopy                                         - interactive mode
   $ npcopy ./source ./output                       - copy the former to the latter without node_modules
   $ npcopy ./source ./output -i node_modules dist  - copy the former to the latter without node_modules and dist
   $ npcopy /opt/source -i node_modules -l          - only list files without node_modules
   `)
   .argument('[source]', 'source path')
-  .argument('[output]', 'output path')
+  .argument('[output]', 'destination path')
   .option('-i, --ignores <ignores...>', 'ignore files')
   .option('-l, --list', 'only list files')
   .option('-a, --interactive', 'interactive mode (default)')
