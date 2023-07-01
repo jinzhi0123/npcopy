@@ -23,7 +23,7 @@ $ npm i -g npcopy
 
 By default, npcopy will enter the interactive mode, where you can input the source and destination paths and select the ignore files you want to ignore.
 
-
+![](https://index.qingwu.top/d/assets/20230701233055.png)
 
 Or you can use the command line mode, where you can specify the source and destination paths and ignore files.
 
