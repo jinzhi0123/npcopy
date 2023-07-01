@@ -1,7 +1,7 @@
 {
   "name": "npcopy",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Copy files and directories without node_modules and other specified files. Copy your project to another directory at high speed！",
   "author": "jinzhi0123",
   "license": "ISC",

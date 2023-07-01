@@ -66,7 +66,6 @@ Examples:
   .option('-l, --list', 'only list files')
   .option('-a, --interactive', 'interactive mode (default)')
   .action(async (source, output, options) => {
-    console.log(source, output, options)
     if (options.interactive || source === undefined) {
       const answers = await interactive()
       copy(answers.source, answers.output, answers.ignores)
