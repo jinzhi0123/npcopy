@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import inquirer from 'inquirer'
 import { Command } from 'commander'
 import { copy } from './copy.js'

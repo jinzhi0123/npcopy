@@ -1,12 +1,16 @@
 {
   "name": "npcopy",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Copy files and directories without node_modules and other specified files. Copy your project to another directory at high speed！",
   "author": "jinzhi0123",
   "license": "ISC",
   "keywords": ["node_modules", "without node_modules", "copy", "copy projects"],
   "main": "dist/index.js",
+  "module": "dist/index.js",
+  "bin": {
+    "npcopy": "dist/index.js"
+  },
   "scripts": {
     "node-dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc -p .",
